@@ -84,20 +84,20 @@ export function MockupInicio() {
         </div>
         <div className="flex gap-2">
           <div className="flex flex-[1.3] flex-col gap-0.5 rounded-xl bg-vinke-navy p-3">
-            <span className="text-[7px] font-semibold tracking-[0.12em] text-vinke-ink3">DESEMPENHO GERAL</span>
+            <span className="text-[7px] font-semibold tracking-[0.12em] text-vinke-ink3">TAXA DE ACERTO GERAL</span>
             <div className="flex items-baseline gap-1.5">
-              <span className="font-display text-3xl font-bold text-white">648</span>
-              <span className="rounded-full bg-vinke-green-soft px-1.5 py-0.5 text-[8px] font-bold text-vinke-green-text">↑ +18 pts</span>
+              <span className="font-display text-3xl font-bold text-white">68%</span>
+              <span className="rounded-full bg-vinke-green-soft px-1.5 py-0.5 text-[8px] font-bold text-vinke-green-text">↑ +4 pts</span>
             </div>
-            <span className="text-[8px] font-medium text-vinke-ink3">escala do ENEM · média das 4 áreas</span>
+            <span className="text-[8px] font-medium text-vinke-ink3">média de acertos nas 4 áreas</span>
           </div>
           <div className="flex flex-1 flex-col gap-1 rounded-xl bg-white p-3">
             <span className="text-[7px] font-semibold tracking-[0.12em] text-vinke-ink3">SUA META</span>
-            <span className="font-display text-lg font-bold text-vinke-ink">720</span>
+            <span className="font-display text-lg font-bold text-vinke-ink">ENEM 2027</span>
             <div className="h-[5px] rounded-full bg-vinke-line2">
               <div className="h-[5px] w-[90%] rounded-full bg-vinke" />
             </div>
-            <span className="text-[8px] font-semibold text-vinke-ink2">Faltam 72 pontos</span>
+            <span className="text-[8px] font-semibold text-vinke-ink2">Faltam 74 dias</span>
           </div>
         </div>
         <div className="flex flex-col gap-1.5 rounded-xl bg-white p-3">
@@ -305,16 +305,16 @@ function MockSimulado() {
 
 function MockEvolucao() {
   const meses = [
-    { m: "mai · 590", h: 44, c: "bg-vinke-line2" },
-    { m: "jun · 607", h: 52, c: "bg-[#D9D1F7]" },
-    { m: "jul · 630", h: 60, c: "bg-[#B7A6F4]" },
-    { m: "ago · 648", h: 72, c: "bg-vinke" },
+    { m: "mai · 51%", h: 44, c: "bg-vinke-line2" },
+    { m: "jun · 58%", h: 52, c: "bg-[#D9D1F7]" },
+    { m: "jul · 65%", h: 60, c: "bg-[#B7A6F4]" },
+    { m: "ago · 72%", h: 72, c: "bg-vinke" },
   ];
   return (
     <div className="flex w-full max-w-[480px] flex-col gap-3 rounded-2xl border border-vinke-line bg-white p-5 shadow-[0_18px_48px_rgba(11,10,33,0.08)]">
       <div className="flex items-center justify-between">
         <span className="font-display text-[13px] font-bold text-vinke-ink">Sua evolução</span>
-        <span className="rounded-full bg-vinke-green-soft px-2.5 py-0.5 text-[10px] font-bold text-vinke-green-text">↑ +58 pts desde maio</span>
+        <span className="rounded-full bg-vinke-green-soft px-2.5 py-0.5 text-[10px] font-bold text-vinke-green-text">↑ +21 pts desde maio</span>
       </div>
       <div className="flex h-[90px] items-end gap-2.5">
         {meses.map((x) => (
@@ -391,7 +391,7 @@ export function Recursos() {
     {
       titulo: "Plano diário que se adapta",
       texto:
-        "Metas de questões, flashcards e minutos, todo dia. Sua sequência de dias vira motivação — e o plano sempre prioriza seu ponto fraco da semana.",
+        "Metas de questões e flashcards, todo dia. Sua sequência de dias vira motivação — e o plano sempre prioriza seu ponto fraco da semana.",
       mock: <MockEstudoHoje />,
       invert: true,
     },
@@ -444,7 +444,7 @@ export function ComoFunciona() {
     {
       n: "3",
       t: "Veja a nota subir nos simulados",
-      d: "Cada simulado atualiza sua estimativa na escala do ENEM. Evolução que dá pra ver.",
+      d: "Cada simulado atualiza sua taxa de acerto em cada área. Evolução que dá pra ver.",
       check: true,
     },
   ];
@@ -489,11 +489,11 @@ export function Depoimentos() {
         <div className="grid gap-5 lg:grid-cols-[1.3fr_1fr_1fr]">
           <div className="flex flex-col justify-between gap-4 rounded-2xl bg-vinke-navy p-7">
             <p className="font-display text-xl font-bold leading-snug text-white sm:text-[22px]">
-              &ldquo;Comecei em 590 nos simulados. Três meses depois, 648.&rdquo;
+              &ldquo;Comecei acertando metade. Três meses depois, 72%.&rdquo;
             </p>
             <div className="flex flex-wrap items-baseline gap-2">
-              <span className="font-display text-3xl font-bold text-white">590 → 648</span>
-              <span className="rounded-full bg-vinke-green-soft px-2.5 py-1 text-xs font-bold text-vinke-green-text">↑ +58 pts</span>
+              <span className="font-display text-3xl font-bold text-white">51% → 72%</span>
+              <span className="rounded-full bg-vinke-green-soft px-2.5 py-1 text-xs font-bold text-vinke-green-text">↑ +21 pts</span>
             </div>
             <Pessoa dark nome="[Nome do aluno]" info="São Paulo · quer Medicina" letra="M" />
           </div>
