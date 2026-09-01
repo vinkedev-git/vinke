@@ -5,8 +5,9 @@ import {
   Numeros,
   Problema,
   Recursos,
+  Ciclo,
   ComoFunciona,
-  Depoimentos,
+  Demonstracao,
   Planos,
   CtaFinal,
   Footer,
@@ -23,8 +24,9 @@ export default function LandingPage() {
       <Numeros />
       <Problema />
       <Recursos />
+      <Ciclo />
       <ComoFunciona />
-      <Depoimentos />
+      <Demonstracao />
       <Planos />
       <Faq />
       <CtaFinal />

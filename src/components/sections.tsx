@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { VinkeSymbol } from "@/components/VinkeLogo";
-import { proximoEnem } from "@/lib/enem";
+import DiasEnem from "@/components/DiasEnem";
 
 export const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? "https://vinke-aluno.vercel.app";
 const ENTRAR = `${APP_URL}/aluno/entrar`;
@@ -12,15 +12,15 @@ export function Nav() {
   return (
     <nav className="sticky top-0 z-40 border-b border-vinke-line bg-vinke-offwhite/95 backdrop-blur">
       <div className="mx-auto flex max-w-[1240px] items-center justify-between px-5 py-4 lg:px-8">
-        <a href="#" className="flex items-center gap-2">
+        <a href="/" className="flex items-center gap-2">
           <VinkeSymbol size={24} />
           <span className="font-display text-xl font-bold tracking-[0.01em] text-vinke-ink">VINKE</span>
         </a>
         <div className="hidden gap-8 text-[13px] font-semibold text-vinke-ink2 md:flex">
-          <a href="#recursos" className="transition hover:text-vinke-ink">Recursos</a>
-          <a href="#como-funciona" className="transition hover:text-vinke-ink">Como funciona</a>
-          <a href="#planos" className="transition hover:text-vinke-ink">Planos</a>
-          <a href="#duvidas" className="transition hover:text-vinke-ink">Dúvidas</a>
+          <a href="/#recursos" className="transition hover:text-vinke-ink">Recursos</a>
+          <a href="/#como-funciona" className="transition hover:text-vinke-ink">Como funciona</a>
+          <a href="/#planos" className="transition hover:text-vinke-ink">Planos</a>
+          <a href="/#duvidas" className="transition hover:text-vinke-ink">Dúvidas</a>
         </div>
         <div className="flex items-center gap-4">
           <Link href={ENTRAR} className="hidden text-[13px] font-bold text-vinke-ink sm:block">
@@ -126,8 +126,8 @@ export function Hero({ campanha = false }: { campanha?: boolean }) {
           Sua nota no ENEM começa a subir hoje.
         </h1>
         <p className="text-[16px] leading-relaxed text-vinke-ink2 sm:text-[17px]">
-          Questões oficiais, simulados no formato da prova e um plano diário que prioriza o que
-          você mais erra. Treino de verdade, não videoaula.
+          Questões oficiais, simulados no formato da prova e um plano diário que usa seu
+          desempenho para priorizar o que estudar agora.
         </p>
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
           <Link
@@ -191,34 +191,51 @@ export function Numeros() {
 // ─── O problema ──────────────────────────────────────────────────────────────
 
 export function Problema() {
+  const dores = [
+    "Você estuda muito, mas não sabe se está estudando o que realmente precisa.",
+    "Erra uma questão, confere a resposta e segue — até encontrar a mesma dificuldade de novo.",
+    "Tem dezenas de assuntos para revisar, sem saber quais merecem prioridade.",
+    "Gasta tempo no que já domina, enquanto os pontos fracos continuam cobrando pontos.",
+  ];
   return (
     <section className="bg-white py-16 lg:py-[88px]">
-      <div className="mx-auto flex max-w-[1240px] flex-col gap-7 px-5 lg:px-8">
-        <h2 className="max-w-[640px] font-display text-3xl font-bold leading-tight text-vinke-ink sm:text-[38px]">
-          Estudar sem direção não sobe nota.
-        </h2>
-        <div className="flex flex-col gap-8 lg:flex-row lg:gap-12">
-          <div className="flex flex-1 flex-col gap-3.5">
-            {[
-              "Apostila parada na página 40 desde março.",
-              "Horas de videoaula assistindo alguém resolver — sem você resolver nada.",
-              "Nenhuma ideia do que realmente cai, nem de onde você está perdendo ponto.",
-            ].map((t) => (
-              <div key={t} className="flex items-start gap-3">
-                <span className="font-bold text-vinke-red">✗</span>
-                <span className="text-[15px] leading-relaxed text-vinke-ink2">{t}</span>
-              </div>
-            ))}
-          </div>
-          <div className="flex flex-1 flex-col gap-2.5 rounded-2xl bg-vinke-soft p-7">
-            <VinkeSymbol size={28} />
-            <p className="font-display text-lg font-bold leading-snug text-vinke-ink sm:text-xl">
-              O VINKE é o contrário: você treina com a prova de verdade, e seus dados decidem o
-              que estudar em seguida.
+      <div className="mx-auto flex max-w-[1240px] flex-col gap-9 px-5 lg:px-8">
+        <div className="flex flex-col gap-3.5">
+          <h2 className="max-w-[620px] font-display text-3xl font-bold leading-tight text-vinke-ink sm:text-[38px]">
+            Você estuda. Mas não sabe se está estudando certo.
+          </h2>
+          <p className="max-w-[540px] text-[15px] leading-relaxed text-vinke-ink2 sm:text-base">
+            A prova se aproxima. O conteúdo parece infinito. E quanto mais você tenta dar conta
+            de tudo, mais difícil fica saber onde concentrar seu tempo.
+          </p>
+        </div>
+        <div className="flex flex-col gap-8 lg:grid lg:grid-cols-2 lg:gap-12">
+          <div className="flex flex-col gap-7 lg:pt-7">
+            <div className="flex flex-col gap-3.5">
+              {dores.map((t) => (
+                <div key={t} className="flex items-start gap-3">
+                  <span className="font-bold text-vinke-red">✗</span>
+                  <span className="text-[15px] leading-relaxed text-vinke-ink2">{t}</span>
+                </div>
+              ))}
+            </div>
+            <p className="max-w-[460px] font-display text-xl font-bold leading-snug text-vinke-ink sm:text-2xl">
+              O problema não é falta de estudo.{" "}
+              <span className="text-vinke">É estudar sem saber onde cada hora pode render mais pontos.</span>
             </p>
-            <p className="text-sm leading-relaxed text-vinke-ink2">
-              Cada questão respondida ensina a plataforma sobre você. Seu ponto fraco vira seu
-              plano de amanhã.
+          </div>
+          <div className="flex flex-col gap-3 rounded-2xl bg-vinke-soft p-7">
+            <VinkeSymbol size={28} />
+            <p className="font-display text-xl font-bold leading-snug text-vinke-ink sm:text-2xl">
+              É aí que entra o VINKE.
+            </p>
+            <p className="text-[15px] leading-relaxed text-vinke-ink2">
+              Você resolve questões. O VINKE identifica seus erros, acompanha sua evolução e usa
+              seu desempenho para decidir o que merece sua atenção em seguida.
+            </p>
+            <p className="text-sm font-semibold leading-relaxed text-vinke-ink">
+              Seu ponto fraco deixa de ser uma surpresa na prova e vira parte do seu treino de
+              amanhã.
             </p>
           </div>
         </div>
@@ -366,32 +383,39 @@ function MockEstudoHoje() {
 }
 
 export function Recursos() {
-  const blocos = [
+  const blocos: Array<{
+    titulo: string;
+    texto: string;
+    destaque?: string;
+    mock: React.ReactNode;
+    invert: boolean;
+  }> = [
     {
       titulo: "Questões oficiais",
       texto:
-        "Todas as provas do ENEM, com filtros por área, disciplina e assunto. Errou? A resolução comentada explica o caminho — não só o gabarito.",
+        "Todas as provas do ENEM, com filtros por área, disciplina e assunto. Você treina com o mesmo tipo de questão que vai encontrar no dia da prova — e, quando erra, a resolução comentada mostra o caminho, não só o gabarito.",
       mock: <MockQuestao />,
       invert: false,
     },
     {
       titulo: "Simulados do seu jeito",
       texto:
-        "Monte por ano, área e assunto. 45 questões = uma área inteira. 90 = um dia de prova. Mapa da prova, cronômetro e correção na hora, como no dia oficial.",
+        "Monte por ano, área e assunto. 45 questões = uma área inteira. 90 = um dia de prova. Mapa da prova, cronômetro e correção na hora — para o formato do ENEM não ter surpresa.",
       mock: <MockSimulado />,
       invert: true,
     },
     {
       titulo: "Seus dados trabalhando por você",
       texto:
-        "Desempenho por área, evolução mês a mês e um caderno de erros que se preenche sozinho. Você nunca mais estuda no escuro.",
+        "Desempenho por área, evolução mês a mês e um caderno de erros que se preenche sozinho. Você enxerga onde está ganhando e onde está perdendo pontos.",
+      destaque: "Você nunca mais estuda no escuro.",
       mock: <MockEvolucao />,
       invert: false,
     },
     {
       titulo: "Plano diário que se adapta",
       texto:
-        "Metas de questões e flashcards, todo dia. Sua sequência de dias vira motivação — e o plano sempre prioriza seu ponto fraco da semana.",
+        "Metas de questões e flashcards todo dia, calibradas pelo seu desempenho recente. O plano aponta para onde você pode ganhar mais pontos — e a sequência de dias mantém o ritmo.",
       mock: <MockEstudoHoje />,
       invert: true,
     },
@@ -416,10 +440,63 @@ export function Recursos() {
             <div className="flex flex-1 flex-col gap-3">
               <h3 className="font-display text-2xl font-bold text-vinke-ink sm:text-[26px]">{b.titulo}</h3>
               <p className="max-w-[480px] text-[15px] leading-relaxed text-vinke-ink2">{b.texto}</p>
+              {b.destaque ? (
+                <p className="font-display text-lg font-bold text-vinke">{b.destaque}</p>
+              ) : null}
             </div>
             {b.mock}
           </div>
         ))}
+      </div>
+    </section>
+  );
+}
+
+// ─── O ciclo ─────────────────────────────────────────────────────────────────
+
+export function Ciclo() {
+  const passos = [
+    "Você responde questões",
+    "O VINKE analisa seu desempenho",
+    "Seus pontos fracos aparecem",
+    "O próximo treino é priorizado",
+    "Novos resultados atualizam o plano",
+  ];
+  return (
+    <section className="bg-white py-16 lg:py-[88px]">
+      <div className="mx-auto flex max-w-[1240px] flex-col items-center gap-9 px-5 text-center lg:px-8">
+        <div className="flex flex-col items-center gap-2">
+          <span className="text-xs font-bold tracking-[0.14em] text-vinke">O MECANISMO</span>
+          <h2 className="font-display text-3xl font-bold text-vinke-ink sm:text-[38px]">
+            Cada questão respondida vira direção.
+          </h2>
+        </div>
+        <div className="flex flex-col items-center gap-2.5 lg:flex-row lg:flex-wrap lg:justify-center">
+          {passos.map((p, i) => (
+            <div key={p} className="flex flex-col items-center gap-2.5 lg:flex-row">
+              {i > 0 ? (
+                <span className="rotate-90 font-display text-lg font-bold text-vinke-ink3 lg:rotate-0">→</span>
+              ) : null}
+              <div
+                className={
+                  "flex items-center gap-2.5 rounded-xl border-[1.5px] px-4 py-3 " +
+                  (i === passos.length - 1
+                    ? "border-vinke bg-vinke-soft"
+                    : "border-vinke-line bg-vinke-offwhite")
+                }
+              >
+                <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-vinke-soft font-display text-[11px] font-bold text-vinke">
+                  {i + 1}
+                </span>
+                <span className="text-[13px] font-bold text-vinke-ink">{p}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+        <p className="max-w-[520px] text-[15px] leading-relaxed text-vinke-ink2">
+          Quanto mais você treina, melhor o VINKE entende onde você precisa evoluir — e mais
+          certeiro fica o seu plano.
+        </p>
       </div>
     </section>
   );
@@ -443,8 +520,8 @@ export function ComoFunciona() {
     },
     {
       n: "3",
-      t: "Veja a nota subir nos simulados",
-      d: "Cada simulado atualiza sua taxa de acerto em cada área. Evolução que dá pra ver.",
+      t: "Acompanhe sua evolução nos simulados",
+      d: "Cada simulado atualiza sua taxa de acerto por área. Você vê o que avançou — e o que entra no próximo treino.",
       check: true,
     },
   ];
@@ -474,65 +551,94 @@ export function ComoFunciona() {
   );
 }
 
-// ─── Depoimentos ─────────────────────────────────────────────────────────────
+// ─── Demonstração do mecanismo ───────────────────────────────────────────────
 
-export function Depoimentos() {
+function DemoBar({
+  nome,
+  pct,
+  fraco,
+  delta,
+}: {
+  nome: string;
+  pct: number;
+  fraco?: boolean;
+  delta?: string;
+}) {
+  return (
+    <div className="flex items-center gap-2.5">
+      <span className="w-[86px] shrink-0 text-left text-[11px] font-semibold text-vinke-ink">{nome}</span>
+      <div className="h-[6px] min-w-0 flex-1 rounded-full bg-vinke-line2">
+        <div
+          className={"h-[6px] rounded-full " + (fraco ? "bg-vinke-red" : "bg-vinke")}
+          style={{ width: `${pct}%` }}
+        />
+      </div>
+      <span className="w-8 shrink-0 text-right font-display text-xs font-bold text-vinke-ink">{pct}%</span>
+      {delta ? (
+        <span className="shrink-0 rounded-full bg-vinke-green-soft px-1.5 py-0.5 text-[9px] font-bold text-vinke-green-text">
+          {delta}
+        </span>
+      ) : fraco ? (
+        <span className="shrink-0 rounded-full bg-vinke-red-soft px-1.5 py-0.5 text-[9px] font-bold text-vinke-red">
+          fraco
+        </span>
+      ) : (
+        <span className="w-9 shrink-0" />
+      )}
+    </div>
+  );
+}
+
+export function Demonstracao() {
   return (
     <section className="bg-white py-16 lg:py-[88px]">
       <div className="mx-auto flex max-w-[1240px] flex-col gap-9 px-5 lg:px-8">
-        <div className="flex flex-wrap items-end justify-between gap-2">
-          <h2 className="font-display text-3xl font-bold text-vinke-ink sm:text-[38px]">Quem treina, sobe.</h2>
-          <span className="text-[11px] font-medium text-vinke-ink4">
-            depoimentos ilustrativos — em breve, histórias reais de alunos
+        <div className="flex flex-wrap items-end justify-between gap-3">
+          <h2 className="max-w-[560px] font-display text-3xl font-bold leading-tight text-vinke-ink sm:text-[38px]">
+            Veja como o VINKE transforma desempenho em direção.
+          </h2>
+          <span className="rounded-full border border-vinke-line px-3 py-1 text-[10px] font-bold tracking-[0.08em] text-vinke-ink3">
+            EXEMPLO ILUSTRATIVO
           </span>
         </div>
-        <div className="grid gap-5 lg:grid-cols-[1.3fr_1fr_1fr]">
-          <div className="flex flex-col justify-between gap-4 rounded-2xl bg-vinke-navy p-7">
-            <p className="font-display text-xl font-bold leading-snug text-white sm:text-[22px]">
-              &ldquo;Comecei acertando metade. Três meses depois, 72%.&rdquo;
-            </p>
-            <div className="flex flex-wrap items-baseline gap-2">
-              <span className="font-display text-3xl font-bold text-white">51% → 72%</span>
-              <span className="rounded-full bg-vinke-green-soft px-2.5 py-1 text-xs font-bold text-vinke-green-text">↑ +21 pts</span>
+        <div className="grid items-center gap-6 lg:grid-cols-[1fr_auto_1fr] lg:gap-8">
+          <div className="flex flex-col gap-3 rounded-2xl border border-vinke-line bg-white p-6 shadow-[0_18px_48px_rgba(11,10,33,0.08)]">
+            <span className="text-[10px] font-bold tracking-[0.12em] text-vinke-ink3">
+              SEMANA 1 · DIAGNÓSTICO
+            </span>
+            <DemoBar nome="Matemática" pct={52} />
+            <DemoBar nome="Funções" pct={38} fraco />
+            <DemoBar nome="Geometria" pct={61} />
+          </div>
+          <div className="flex flex-col items-center gap-2">
+            <div className="flex max-w-[280px] items-center gap-2.5 rounded-xl bg-vinke-soft px-4 py-3">
+              <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-white font-display text-[11px] font-bold text-vinke">1</span>
+              <span className="text-left text-xs font-bold text-vinke-ink">
+                O VINKE identifica Funções como prioridade
+              </span>
             </div>
-            <Pessoa dark nome="[Nome do aluno]" info="São Paulo · quer Medicina" letra="M" />
+            <span className="font-display text-lg font-bold text-vinke-ink3">↓</span>
+            <div className="flex max-w-[280px] items-center gap-2.5 rounded-xl bg-vinke-soft px-4 py-3">
+              <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-white font-display text-[11px] font-bold text-vinke">2</span>
+              <span className="text-left text-xs font-bold text-vinke-ink">
+                Os próximos treinos dão mais peso a esse ponto fraco
+              </span>
+            </div>
           </div>
-          <div className="flex flex-col gap-5">
-            <Depo texto="[Depoimento — o plano diário me fez estudar todo dia sem pensar no que estudar.]" nome="[Nome]" info="Recife · quer Direito" letra="A" />
-            <Depo texto="[Depoimento — resolver as provas antigas com resolução comentada mudou meu jeito de estudar.]" nome="[Nome]" info="Belo Horizonte · quer Engenharia" letra="L" />
+          <div className="flex flex-col gap-3 rounded-2xl border border-vinke-line bg-white p-6 shadow-[0_18px_48px_rgba(11,10,33,0.08)]">
+            <span className="text-[10px] font-bold tracking-[0.12em] text-vinke-ink3">
+              SEMANAS DEPOIS · NOVO DIAGNÓSTICO
+            </span>
+            <DemoBar nome="Matemática" pct={58} delta="+6" />
+            <DemoBar nome="Funções" pct={55} delta="+17" />
+            <DemoBar nome="Geometria" pct={62} delta="+1" />
           </div>
-          <Depo texto="[Depoimento — estudo no ônibus pelo celular. O caderno de erros virou minha rotina de revisão.]" nome="[Nome]" info="Fortaleza · quer Psicologia" letra="J" alta />
         </div>
+        <p className="text-center text-[11px] font-medium text-vinke-ink4">
+          Exemplo ilustrativo de acompanhamento. O desempenho varia de acordo com cada aluno.
+        </p>
       </div>
     </section>
-  );
-}
-
-function Pessoa({ nome, info, letra, dark }: { nome: string; info: string; letra: string; dark?: boolean }) {
-  return (
-    <div className="flex items-center gap-2.5">
-      <span
-        className={
-          "flex h-9 w-9 items-center justify-center rounded-full font-display text-[13px] font-bold " +
-          (dark ? "bg-[#1B1932] text-vinke-ink3" : "bg-vinke-line2 text-vinke-ink3")
-        }
-      >
-        {letra}
-      </span>
-      <div className="flex flex-col">
-        <span className={"text-[13px] font-bold " + (dark ? "text-white" : "text-vinke-ink")}>{nome}</span>
-        <span className="text-[11px] font-medium text-vinke-ink3">{info}</span>
-      </div>
-    </div>
-  );
-}
-
-function Depo({ texto, nome, info, letra, alta }: { texto: string; nome: string; info: string; letra: string; alta?: boolean }) {
-  return (
-    <div className={"flex flex-col justify-between gap-3 rounded-2xl border-[1.5px] border-vinke-line p-6 " + (alta ? "" : "flex-1")}>
-      <p className="text-[13px] leading-relaxed text-vinke-ink2">&ldquo;{texto}&rdquo;</p>
-      <Pessoa nome={nome} info={info} letra={letra} />
-    </div>
   );
 }
 
@@ -545,7 +651,7 @@ export function Planos() {
         <div className="flex flex-col items-center gap-2 text-center">
           <span className="text-xs font-bold tracking-[0.14em] text-vinke">PLANOS</span>
           <h2 className="font-display text-3xl font-bold text-vinke-ink sm:text-[38px]">
-            Menos que um lanche por semana.
+            Comece grátis. Evolua no seu ritmo.
           </h2>
         </div>
         <div className="flex flex-col items-stretch justify-center gap-5 lg:flex-row">
@@ -633,13 +739,12 @@ export function Planos() {
 // ─── CTA final ───────────────────────────────────────────────────────────────
 
 export function CtaFinal() {
-  const { dias } = proximoEnem();
   return (
     <section className="bg-vinke-navy px-5 py-20 lg:py-[96px]">
       <div className="mx-auto flex max-w-[680px] flex-col items-center gap-5 text-center">
         <VinkeSymbol size={44} />
         <h2 className="font-display text-[32px] font-bold leading-tight text-white sm:text-[46px]">
-          Faltam <span className="text-vinke-lav">{dias} dias</span> para o ENEM. Comece hoje.
+          Faltam <span className="text-vinke-lav"><DiasEnem /> dias</span> para o ENEM. Comece hoje.
         </h2>
         <p className="text-[15px] font-medium text-vinke-ink3">
           Cada dia de treino conta. O diagnóstico leva 10 minutos.
@@ -673,7 +778,7 @@ export function Footer() {
         <div className="flex gap-6 text-xs font-semibold text-vinke-ink3">
           <a href="/termos" className="transition hover:text-white">Termos de uso</a>
           <a href="/privacidade" className="transition hover:text-white">Privacidade</a>
-          <a href="mailto:suporte@vinke.app.br" className="transition hover:text-white">Suporte</a>
+          <a href="/suporte" className="transition hover:text-white">Suporte</a>
         </div>
         <div className="flex gap-4 text-xs font-semibold text-vinke-ink3">
           <span>Instagram</span>
