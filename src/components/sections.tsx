@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { VinkeSymbol } from "@/components/VinkeLogo";
 import DiasEnem from "@/components/DiasEnem";
+import { DADOS_PRODUTO } from "@/lib/produto";
 
 export const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? "https://vinke-aluno.vercel.app";
 const ENTRAR = `${APP_URL}/aluno/entrar`;
@@ -168,12 +169,7 @@ export function TrustStrip() {
 // ─── Números ─────────────────────────────────────────────────────────────────
 
 export function Numeros() {
-  const items = [
-    { n: "+2.700", d: "questões oficiais do ENEM" },
-    { n: "15", d: "provas completas" },
-    { n: "4", d: "áreas do conhecimento" },
-    { n: "Na hora", d: "correção e resolução comentada" },
-  ];
+  const items = DADOS_PRODUTO;
   return (
     <section className="bg-vinke-navy py-11">
       <div className="mx-auto grid max-w-[1240px] grid-cols-2 gap-8 px-5 lg:grid-cols-4 lg:px-8">
@@ -415,7 +411,7 @@ export function Recursos() {
     {
       titulo: "Plano diário que se adapta",
       texto:
-        "Metas de questões e flashcards todo dia, calibradas pelo seu desempenho recente. O plano aponta para onde você pode ganhar mais pontos — e a sequência de dias mantém o ritmo.",
+        "Metas de questões e flashcards todo dia, calibradas pelo seu desempenho recente. O plano mostra onde vale concentrar seu próximo treino — e a sequência de dias mantém o ritmo.",
       mock: <MockEstudoHoje />,
       invert: true,
     },
@@ -494,8 +490,8 @@ export function Ciclo() {
           ))}
         </div>
         <p className="max-w-[520px] text-[15px] leading-relaxed text-vinke-ink2">
-          Quanto mais você treina, melhor o VINKE entende onde você precisa evoluir — e mais
-          certeiro fica o seu plano.
+          Quanto mais você treina, melhor o VINKE entende seu desempenho — e mais preciso fica
+          o seu plano.
         </p>
       </div>
     </section>
@@ -553,17 +549,7 @@ export function ComoFunciona() {
 
 // ─── Demonstração do mecanismo ───────────────────────────────────────────────
 
-function DemoBar({
-  nome,
-  pct,
-  fraco,
-  delta,
-}: {
-  nome: string;
-  pct: number;
-  fraco?: boolean;
-  delta?: string;
-}) {
+function DemoBar({ nome, pct, fraco }: { nome: string; pct: number; fraco?: boolean }) {
   return (
     <div className="flex items-center gap-2.5">
       <span className="w-[86px] shrink-0 text-left text-[11px] font-semibold text-vinke-ink">{nome}</span>
@@ -574,11 +560,7 @@ function DemoBar({
         />
       </div>
       <span className="w-8 shrink-0 text-right font-display text-xs font-bold text-vinke-ink">{pct}%</span>
-      {delta ? (
-        <span className="shrink-0 rounded-full bg-vinke-green-soft px-1.5 py-0.5 text-[9px] font-bold text-vinke-green-text">
-          {delta}
-        </span>
-      ) : fraco ? (
+      {fraco ? (
         <span className="shrink-0 rounded-full bg-vinke-red-soft px-1.5 py-0.5 text-[9px] font-bold text-vinke-red">
           fraco
         </span>
@@ -629,9 +611,9 @@ export function Demonstracao() {
             <span className="text-[10px] font-bold tracking-[0.12em] text-vinke-ink3">
               SEMANAS DEPOIS · NOVO DIAGNÓSTICO
             </span>
-            <DemoBar nome="Matemática" pct={58} delta="+6" />
-            <DemoBar nome="Funções" pct={55} delta="+17" />
-            <DemoBar nome="Geometria" pct={62} delta="+1" />
+            <DemoBar nome="Matemática" pct={58} />
+            <DemoBar nome="Funções" pct={55} />
+            <DemoBar nome="Geometria" pct={62} />
           </div>
         </div>
         <p className="text-center text-[11px] font-medium text-vinke-ink4">
