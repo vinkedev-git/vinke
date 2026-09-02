@@ -296,47 +296,47 @@ export function Problema() {
   ];
   return (
     <section className="bg-white py-16 lg:py-[88px]">
-      <div className="mx-auto flex max-w-[1240px] flex-col gap-9 px-5 lg:px-8">
-        <div className="flex flex-col gap-3.5">
-          <h2 className="max-w-[620px] font-display text-3xl font-bold leading-tight text-vinke-ink sm:text-[38px]">
-            Você estuda. Mas não sabe se está estudando certo.
-          </h2>
-          <p className="max-w-[540px] text-[15px] leading-relaxed text-vinke-ink2 sm:text-base">
-            A prova se aproxima. O conteúdo parece infinito. E quanto mais você tenta dar conta
-            de tudo, mais difícil fica saber onde concentrar seu tempo.
-          </p>
-        </div>
-        <div className="flex flex-col gap-8 lg:grid lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-12">
-          <div className="flex flex-col gap-7 lg:pt-7">
-            <div className="flex flex-col gap-3.5">
-              {dores.map((t) => (
-                <div key={t} className="flex items-start gap-3">
-                  <span className="font-bold text-vinke-red">✗</span>
-                  <span className="text-[15px] leading-relaxed text-vinke-ink2">{t}</span>
-                </div>
-              ))}
-            </div>
-            <p className="max-w-[460px] font-display text-xl font-bold leading-snug text-vinke-ink sm:text-2xl">
-              O problema não é falta de estudo.{" "}
-              <span className="text-vinke">É estudar sem saber onde cada hora pode render mais pontos.</span>
+      <div className="mx-auto flex max-w-[1240px] flex-col gap-8 px-5 lg:grid lg:grid-cols-2 lg:gap-12 lg:px-8">
+        <div className="flex flex-col gap-7 lg:justify-between">
+          <div className="flex flex-col gap-3.5">
+            <h2 className="max-w-[620px] font-display text-3xl font-bold leading-tight text-vinke-ink sm:text-[38px]">
+              Você estuda. Mas não sabe se está estudando certo.
+            </h2>
+            <p className="max-w-[540px] text-[15px] leading-relaxed text-vinke-ink2 sm:text-base">
+              A prova se aproxima. O conteúdo parece infinito. E quanto mais você tenta dar
+              conta de tudo, mais difícil fica saber onde concentrar seu tempo.
             </p>
           </div>
-          <div className="grid gap-7 rounded-2xl bg-vinke-soft p-6 sm:p-8 lg:grid-cols-[auto_1fr] lg:items-center lg:gap-9">
-            <div className="flex flex-col gap-2.5 lg:col-start-2 lg:row-start-1">
-              <h3 className="font-display text-xl font-bold leading-snug text-vinke-ink sm:text-2xl">
-                É aí que entra o <span className="text-vinke">VINKE</span>.
-              </h3>
-              <p className="text-[14px] leading-relaxed text-vinke-ink2">
-                Você resolve questões. O VINKE identifica seus erros, acompanha seu desempenho e
-                usa esses dados para orientar o que merece sua atenção em seguida.
-              </p>
-            </div>
+          <div className="flex flex-col gap-3.5">
+            {dores.map((t) => (
+              <div key={t} className="flex items-start gap-3">
+                <span className="font-bold text-vinke-red">✗</span>
+                <span className="text-[15px] leading-relaxed text-vinke-ink2">{t}</span>
+              </div>
+            ))}
+          </div>
+          <p className="max-w-[460px] font-display text-xl font-bold leading-snug text-vinke-ink sm:text-2xl">
+            O problema não é falta de estudo.{" "}
+            <span className="text-vinke">É estudar sem saber onde cada hora pode render mais pontos.</span>
+          </p>
+        </div>
 
-            <div className="flex justify-center lg:col-start-1 lg:row-span-2 lg:row-start-1">
-              <MockPhone />
-            </div>
+        <div className="grid gap-6 rounded-2xl bg-vinke-soft p-6 sm:p-8 lg:grid-cols-[auto_1fr] lg:items-center lg:gap-x-8 lg:gap-y-7">
+          <div className="flex flex-col gap-2.5 lg:col-span-2">
+            <h3 className="font-display text-xl font-bold leading-snug text-vinke-ink sm:text-2xl">
+              É aí que entra o <span className="text-vinke">VINKE</span>.
+            </h3>
+            <p className="text-[14px] leading-relaxed text-vinke-ink2">
+              Você resolve questões. O VINKE identifica seus erros, acompanha seu desempenho e
+              usa esses dados para orientar o que merece sua atenção em seguida.
+            </p>
+          </div>
 
-            <div className="flex flex-col gap-3.5 lg:col-start-2 lg:row-start-2">
+          <div className="flex justify-center lg:col-start-1 lg:row-start-2">
+            <MockPhone />
+          </div>
+
+          <div className="flex flex-col gap-4 lg:col-start-2 lg:row-start-2">
               {[
                 {
                   tipo: "alvo" as const,
@@ -372,7 +372,6 @@ export function Problema() {
             </div>
           </div>
         </div>
-      </div>
     </section>
   );
 }
