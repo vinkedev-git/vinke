@@ -190,7 +190,7 @@ export function Numeros() {
 // do hero (dados cenográficos de interface, não resultados reais).
 function MockPhone() {
   return (
-    <div className="w-[264px] shrink-0 rounded-[38px] bg-vinke-navy p-[10px] shadow-[0_36px_72px_-28px_rgba(11,10,33,0.45)] lg:-rotate-2">
+    <div className="w-[224px] shrink-0 rounded-[34px] bg-vinke-navy p-[10px] shadow-[0_36px_72px_-28px_rgba(11,10,33,0.45)] lg:-rotate-2">
       <div className="overflow-hidden rounded-[30px] bg-vinke-offwhite">
         <div className="flex justify-center bg-vinke-offwhite pt-2.5">
           <div className="h-[16px] w-[76px] rounded-full bg-vinke-navy" />
@@ -302,26 +302,26 @@ export function Problema() {
             <h2 className="max-w-[620px] font-display text-3xl font-bold leading-tight text-vinke-ink sm:text-[38px]">
               Você estuda. Mas não sabe se está estudando certo.
             </h2>
-            <p className="max-w-[540px] text-[15px] leading-relaxed text-vinke-ink2 sm:text-base">
+            <p className="max-w-[540px] text-[15px] leading-relaxed text-vinke-ink2 sm:text-[17px]">
               A prova se aproxima. O conteúdo parece infinito. E quanto mais você tenta dar
               conta de tudo, mais difícil fica saber onde concentrar seu tempo.
             </p>
           </div>
-          <div className="flex flex-col gap-3.5">
+          <div className="flex flex-col gap-6">
             {dores.map((t) => (
               <div key={t} className="flex items-start gap-3">
                 <span className="font-bold text-vinke-red">✗</span>
-                <span className="text-[15px] leading-relaxed text-vinke-ink2">{t}</span>
+                <span className="max-w-[480px] text-[17px] leading-relaxed text-vinke-ink2">{t}</span>
               </div>
             ))}
           </div>
-          <p className="max-w-[460px] font-display text-xl font-bold leading-snug text-vinke-ink sm:text-2xl">
+          <p className="max-w-[480px] font-display text-xl font-bold leading-snug text-vinke-ink sm:text-[26px]">
             O problema não é falta de estudo.{" "}
             <span className="text-vinke">É estudar sem saber onde cada hora pode render mais pontos.</span>
           </p>
         </div>
 
-        <div className="grid gap-6 rounded-2xl bg-vinke-soft p-6 sm:p-8 lg:grid-cols-[auto_1fr] lg:items-center lg:gap-x-8 lg:gap-y-7">
+        <div className="grid gap-6 rounded-2xl bg-vinke-soft p-6 lg:grid-cols-[auto_1fr] lg:items-center lg:gap-x-7 lg:gap-y-5">
           <div className="flex flex-col gap-2.5 lg:col-span-2">
             <h3 className="font-display text-xl font-bold leading-snug text-vinke-ink sm:text-2xl">
               É aí que entra o <span className="text-vinke">VINKE</span>.
@@ -364,7 +364,7 @@ export function Problema() {
               ))}
             </div>
 
-            <div className="flex items-center gap-3 rounded-xl bg-vinke-ring px-4 py-3.5 lg:col-span-2">
+            <div className="flex items-center gap-3 rounded-xl bg-vinke-ring px-4 py-3 lg:col-span-2">
               <VinkeSymbol size={18} className="shrink-0" />
               <span className="text-[13px] font-bold leading-snug text-vinke">
                 Você deixa de estudar no escuro e começa a estudar com estratégia.
