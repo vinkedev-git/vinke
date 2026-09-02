@@ -297,7 +297,7 @@ export function Problema() {
   return (
     <section className="bg-white py-16 lg:py-[88px]">
       <div className="mx-auto flex max-w-[1240px] flex-col gap-8 px-5 lg:grid lg:grid-cols-2 lg:gap-12 lg:px-8">
-        <div className="flex flex-col gap-7 lg:justify-between">
+        <div className="flex flex-col gap-8">
           <div className="flex flex-col gap-3.5">
             <h2 className="max-w-[620px] font-display text-3xl font-bold leading-tight text-vinke-ink sm:text-[38px]">
               Você estuda. Mas não sabe se está estudando certo.
@@ -307,7 +307,7 @@ export function Problema() {
               conta de tudo, mais difícil fica saber onde concentrar seu tempo.
             </p>
           </div>
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-5">
             {dores.map((t) => (
               <div key={t} className="flex items-start gap-3">
                 <span className="font-bold text-vinke-red">✗</span>
