@@ -186,6 +186,107 @@ export function Numeros() {
 
 // ─── O problema ──────────────────────────────────────────────────────────────
 
+// Smartphone com o portal do aluno — mesmo vocabulário visual do MockupInicio
+// do hero (dados cenográficos de interface, não resultados reais).
+function MockPhone() {
+  return (
+    <div className="w-[264px] shrink-0 rounded-[38px] bg-vinke-navy p-[10px] shadow-[0_36px_72px_-28px_rgba(11,10,33,0.45)] lg:-rotate-2">
+      <div className="overflow-hidden rounded-[30px] bg-vinke-offwhite">
+        <div className="flex justify-center bg-vinke-offwhite pt-2.5">
+          <div className="h-[16px] w-[76px] rounded-full bg-vinke-navy" />
+        </div>
+        <div className="flex flex-col gap-2.5 p-3.5 pt-3">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-1.5">
+              <VinkeSymbol size={13} />
+              <span className="font-display text-[11px] font-bold text-vinke-ink">VINKE</span>
+            </div>
+            <span className="font-display text-[11px] font-bold text-vinke-ink">Olá, Marina</span>
+          </div>
+
+          <div className="flex flex-col gap-1.5 rounded-xl bg-white p-3">
+            <span className="text-[7px] font-semibold tracking-[0.12em] text-vinke-ink3">FOCO DE HOJE</span>
+            <div className="flex items-center justify-between">
+              <span className="font-display text-sm font-bold text-vinke-ink">Funções</span>
+              <span className="rounded-full bg-vinke-amber-soft px-2 py-0.5 text-[8px] font-bold text-vinke-amber">
+                Prioridade alta
+              </span>
+            </div>
+            <span className="text-[9px] leading-snug text-vinke-ink2">
+              Seu desempenho indica que esse assunto merece atenção.
+            </span>
+          </div>
+
+          <div className="flex flex-col gap-1.5 rounded-xl bg-white p-3">
+            <span className="text-[7px] font-semibold tracking-[0.12em] text-vinke-ink3">PLANO DE HOJE</span>
+            <div className="flex items-center justify-between rounded-[9px] border-[1.5px] border-vinke px-2.5 py-1.5">
+              <div className="flex flex-col">
+                <span className="text-[9px] font-bold text-vinke-ink">20 questões</span>
+                <span className="text-[8px] text-vinke-ink3">Funções</span>
+              </div>
+              <span className="rounded-md bg-vinke px-2 py-1 text-[8px] font-bold text-white">Começar</span>
+            </div>
+            <div className="flex items-center justify-between rounded-[9px] border-[1.5px] border-vinke-line px-2.5 py-1.5">
+              <span className="text-[9px] font-bold text-vinke-ink">Revisar erros</span>
+              <span className="text-[8px] font-semibold text-vinke-ink3">8 questões</span>
+            </div>
+            <div className="flex items-center justify-between rounded-[9px] border-[1.5px] border-vinke-line px-2.5 py-1.5">
+              <span className="text-[9px] font-bold text-vinke-ink">Flashcards</span>
+              <span className="text-[8px] font-semibold text-vinke-ink3">30 cartões</span>
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-1.5 rounded-xl bg-white p-3">
+            <span className="text-[7px] font-semibold tracking-[0.12em] text-vinke-ink3">SEU DESEMPENHO</span>
+            <AreaBar nome="Matemática" pct={52} />
+            <AreaBar nome="Linguagens" pct={68} />
+            <AreaBar nome="Humanas" pct={61} />
+            <AreaBar nome="Natureza" pct={45} />
+          </div>
+        </div>
+        <div className="flex items-center justify-around border-t border-vinke-line bg-white px-2 py-2.5 text-[8px] font-bold">
+          <span className="text-vinke">Início</span>
+          <span className="text-vinke-ink3">Questões</span>
+          <span className="text-vinke-ink3">Simulados</span>
+          <span className="text-vinke-ink3">Desempenho</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function BeneficioIcone({ tipo }: { tipo: "alvo" | "prioridade" | "ciclo" }) {
+  const paths = {
+    alvo: (
+      <>
+        <circle cx="12" cy="12" r="8" />
+        <circle cx="12" cy="12" r="3.5" />
+        <circle cx="12" cy="12" r="0.5" fill="currentColor" />
+      </>
+    ),
+    prioridade: (
+      <>
+        <path d="M5 19V13" />
+        <path d="M12 19V5" />
+        <path d="M19 19V9" />
+      </>
+    ),
+    ciclo: (
+      <>
+        <path d="M20 12a8 8 0 1 1-2.4-5.7" />
+        <path d="M20 3v4h-4" />
+      </>
+    ),
+  } as const;
+  return (
+    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-white text-vinke">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        {paths[tipo]}
+      </svg>
+    </span>
+  );
+}
+
 export function Problema() {
   const dores = [
     "Você estuda muito, mas não sabe se está estudando o que realmente precisa.",
@@ -205,7 +306,7 @@ export function Problema() {
             de tudo, mais difícil fica saber onde concentrar seu tempo.
           </p>
         </div>
-        <div className="flex flex-col gap-8 lg:grid lg:grid-cols-2 lg:gap-12">
+        <div className="flex flex-col gap-8 lg:grid lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-12">
           <div className="flex flex-col gap-7 lg:pt-7">
             <div className="flex flex-col gap-3.5">
               {dores.map((t) => (
@@ -220,19 +321,55 @@ export function Problema() {
               <span className="text-vinke">É estudar sem saber onde cada hora pode render mais pontos.</span>
             </p>
           </div>
-          <div className="flex flex-col gap-3 rounded-2xl bg-vinke-soft p-7">
-            <VinkeSymbol size={28} />
-            <p className="font-display text-xl font-bold leading-snug text-vinke-ink sm:text-2xl">
-              É aí que entra o VINKE.
-            </p>
-            <p className="text-[15px] leading-relaxed text-vinke-ink2">
-              Você resolve questões. O VINKE identifica seus erros, acompanha sua evolução e usa
-              seu desempenho para decidir o que merece sua atenção em seguida.
-            </p>
-            <p className="text-sm font-semibold leading-relaxed text-vinke-ink">
-              Seu ponto fraco deixa de ser uma surpresa na prova e vira parte do seu treino de
-              amanhã.
-            </p>
+          <div className="grid gap-7 rounded-2xl bg-vinke-soft p-6 sm:p-8 lg:grid-cols-[auto_1fr] lg:items-center lg:gap-9">
+            <div className="flex flex-col gap-2.5 lg:col-start-2 lg:row-start-1">
+              <h3 className="font-display text-xl font-bold leading-snug text-vinke-ink sm:text-2xl">
+                É aí que entra o <span className="text-vinke">VINKE</span>.
+              </h3>
+              <p className="text-[14px] leading-relaxed text-vinke-ink2">
+                Você resolve questões. O VINKE identifica seus erros, acompanha seu desempenho e
+                usa esses dados para orientar o que merece sua atenção em seguida.
+              </p>
+            </div>
+
+            <div className="flex justify-center lg:col-start-1 lg:row-span-2 lg:row-start-1">
+              <MockPhone />
+            </div>
+
+            <div className="flex flex-col gap-3.5 lg:col-start-2 lg:row-start-2">
+              {[
+                {
+                  tipo: "alvo" as const,
+                  t: "Entende seus pontos fracos",
+                  d: "Seu desempenho mostra quais assuntos precisam de mais atenção.",
+                },
+                {
+                  tipo: "prioridade" as const,
+                  t: "Prioriza o que importa agora",
+                  d: "Seu plano organiza o próximo treino com base no que você mais precisa praticar.",
+                },
+                {
+                  tipo: "ciclo" as const,
+                  t: "Evolui com você",
+                  d: "Cada novo treino atualiza seu desempenho e ajuda a ajustar os próximos passos.",
+                },
+              ].map((b) => (
+                <div key={b.t} className="flex items-start gap-3">
+                  <BeneficioIcone tipo={b.tipo} />
+                  <div className="flex flex-col gap-0.5">
+                    <span className="text-[13px] font-bold text-vinke-ink">{b.t}</span>
+                    <span className="text-xs leading-relaxed text-vinke-ink2">{b.d}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex items-center gap-3 rounded-xl bg-vinke-ring px-4 py-3.5 lg:col-span-2">
+              <VinkeSymbol size={18} className="shrink-0" />
+              <span className="text-[13px] font-bold leading-snug text-vinke">
+                Você deixa de estudar no escuro e começa a estudar com estratégia.
+              </span>
+            </div>
           </div>
         </div>
       </div>
