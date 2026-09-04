@@ -5,7 +5,7 @@ import { DADOS_PRODUTO } from "@/lib/produto";
 
 export const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? "https://vinke-aluno.vercel.app";
 const ENTRAR = `${APP_URL}/aluno/entrar`;
-const COMECAR = `${APP_URL}/aluno/entrar`;
+const COMECAR = `${APP_URL}/aluno/cadastro`;
 
 // ─── Nav ─────────────────────────────────────────────────────────────────────
 
