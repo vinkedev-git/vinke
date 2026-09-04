@@ -796,7 +796,7 @@ export function Planos() {
           <div className="flex w-full flex-col gap-3.5 rounded-[18px] border-[1.5px] border-vinke-line bg-white p-7 lg:w-[300px]">
             <span className="font-display text-base font-bold text-vinke-ink">Mensal</span>
             <div className="flex items-baseline gap-1">
-              <span className="font-display text-4xl font-bold text-vinke-ink">R$ 49,90</span>
+              <span className="font-display text-4xl font-bold text-vinke-ink">R$ 34,90</span>
               <span className="text-[13px] font-semibold text-vinke-ink3">/mês</span>
             </div>
             <span className="text-xs font-medium text-vinke-ink3">Tudo liberado, mês a mês.</span>
@@ -820,11 +820,11 @@ export function Planos() {
             </span>
             <span className="font-display text-base font-bold text-white">Anual</span>
             <div className="flex items-baseline gap-1">
-              <span className="font-display text-4xl font-bold text-white">R$ 29,90</span>
+              <span className="font-display text-4xl font-bold text-white">R$ 19,90</span>
               <span className="text-[13px] font-semibold text-vinke-ink3">/mês</span>
             </div>
             <span className="text-xs font-medium text-vinke-ink3">
-              Cobrado R$ 358,80/ano · economia de 40% vs. mensal.
+              Cobrado R$ 238,80/ano (12x no cartão) · economia de 43% vs. mensal.
             </span>
             <div className="flex flex-col gap-2 text-[13px] font-medium text-[#C9C5E2]">
               <span>✓ Tudo do Mensal</span>
@@ -838,6 +838,27 @@ export function Planos() {
               Assinar Anual
             </Link>
           </div>
+        </div>
+        {/* Oferta sazonal — remover após o ENEM 2026 */}
+        <div className="mx-auto flex w-full max-w-[940px] flex-col items-start justify-between gap-4 rounded-[18px] border-[1.5px] border-vinke bg-vinke-soft p-6 sm:flex-row sm:items-center">
+          <div className="flex flex-col gap-1">
+            <span className="text-[10px] font-bold tracking-[0.12em] text-vinke">
+              PARA QUEM FAZ A PROVA ESTE ANO
+            </span>
+            <span className="font-display text-lg font-bold text-vinke-ink">
+              Passe Reta Final · ENEM 2026
+            </span>
+            <span className="text-[13px] font-medium text-vinke-ink2">
+              Pagamento único de <strong className="text-vinke-ink">R$ 49,90</strong> · tudo
+              liberado até 30/11/2026. Faltam <DiasEnem /> dias de treino.
+            </span>
+          </div>
+          <Link
+            href={COMECAR}
+            className="shrink-0 rounded-[10px] bg-vinke px-6 py-3 text-[13px] font-bold text-white transition hover:bg-vinke-deep"
+          >
+            Garantir o Passe
+          </Link>
         </div>
         <div className="flex flex-col items-center justify-center gap-3 text-xs font-semibold text-vinke-ink2 sm:flex-row sm:gap-6">
           <span className="flex items-center gap-2">
