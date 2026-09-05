@@ -3,7 +3,7 @@ import { VinkeSymbol } from "@/components/VinkeLogo";
 import DiasEnem from "@/components/DiasEnem";
 import { DADOS_PRODUTO } from "@/lib/produto";
 
-export const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? "https://vinke-aluno.vercel.app";
+export const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? "https://aluno.vinke.app.br";
 const ENTRAR = `${APP_URL}/aluno/entrar`;
 const COMECAR = `${APP_URL}/aluno/cadastro`;
 
