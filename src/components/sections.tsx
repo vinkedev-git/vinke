@@ -7,6 +7,11 @@ export const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? "https://aluno.vinke.a
 const ENTRAR = `${APP_URL}/aluno/entrar`;
 const COMECAR = `${APP_URL}/aluno/cadastro`;
 
+// Checkouts Eduzz dos planos pagos
+const CHECKOUT_MENSAL = "https://sun.eduzz.com/R9JXJO5E0X";
+const CHECKOUT_ANUAL = "https://sun.eduzz.com/KW8ZK4BO01";
+const CHECKOUT_PASSE = "https://sun.eduzz.com/797Z7QJV0E";
+
 // ─── Nav ─────────────────────────────────────────────────────────────────────
 
 export function Nav() {
@@ -806,12 +811,12 @@ export function Planos() {
               <span>✓ Caderno de erros e flashcards</span>
               <span>✓ Todos os seus dados</span>
             </div>
-            <Link
-              href={COMECAR}
+            <a
+              href={CHECKOUT_MENSAL}
               className="mt-auto rounded-[10px] border-[1.5px] border-vinke py-3 text-center text-[13px] font-bold text-vinke transition hover:bg-vinke-soft"
             >
               Assinar Mensal
-            </Link>
+            </a>
           </div>
           {/* Anual */}
           <div className="relative flex w-full flex-col gap-3.5 rounded-[18px] bg-vinke-navy p-7 shadow-[0_24px_60px_rgba(11,10,33,0.25)] lg:w-[300px]">
@@ -831,12 +836,12 @@ export function Planos() {
               <span>✓ Preço travado até o ENEM</span>
               <span>✓ Prioridade em novos recursos</span>
             </div>
-            <Link
-              href={COMECAR}
+            <a
+              href={CHECKOUT_ANUAL}
               className="mt-auto rounded-[10px] bg-vinke py-3 text-center text-[13px] font-bold text-white transition hover:bg-vinke-deep"
             >
               Assinar Anual
-            </Link>
+            </a>
           </div>
         </div>
         {/* Oferta sazonal — remover após o ENEM 2026 */}
@@ -853,12 +858,12 @@ export function Planos() {
               liberado até 30/11/2026. Faltam <DiasEnem /> dias de treino.
             </span>
           </div>
-          <Link
-            href={COMECAR}
+          <a
+            href={CHECKOUT_PASSE}
             className="shrink-0 rounded-[10px] bg-vinke px-6 py-3 text-[13px] font-bold text-white transition hover:bg-vinke-deep"
           >
             Garantir o Passe
-          </Link>
+          </a>
         </div>
         <div className="flex flex-col items-center justify-center gap-3 text-xs font-semibold text-vinke-ink2 sm:flex-row sm:gap-6">
           <span className="flex items-center gap-2">
