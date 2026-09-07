@@ -917,7 +917,7 @@ export function Footer() {
             <span className="font-display text-[15px] font-bold text-white">VINKE</span>
           </div>
           <span className="text-[10px] font-medium text-[#5D5A72]">
-            VINKE Educação · CNPJ em registro
+            Vinke Estudos · CNPJ em registro
           </span>
         </div>
         <div className="flex gap-6 text-xs font-semibold text-vinke-ink3">
@@ -927,9 +927,14 @@ export function Footer() {
           <a href="/suporte" className="transition hover:text-white">Suporte</a>
         </div>
         <div className="flex gap-4 text-xs font-semibold text-vinke-ink3">
-          <span>Instagram</span>
-          <span>TikTok</span>
-          <span>YouTube</span>
+          <a
+            href="https://instagram.com/vinke.enem"
+            target="_blank"
+            rel="noreferrer"
+            className="transition hover:text-white"
+          >
+            Instagram
+          </a>
         </div>
       </div>
     </footer>
