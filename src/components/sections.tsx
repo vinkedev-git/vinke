@@ -25,6 +25,7 @@ export function Nav() {
         <div className="hidden gap-8 text-[13px] font-semibold text-vinke-ink2 md:flex">
           <a href="/#recursos" className="transition hover:text-vinke-ink">Recursos</a>
           <a href="/#como-funciona" className="transition hover:text-vinke-ink">Como funciona</a>
+          <a href="/questoes" className="transition hover:text-vinke-ink">Questões resolvidas</a>
           <a href="/#planos" className="transition hover:text-vinke-ink">Planos</a>
           <a href="/#duvidas" className="transition hover:text-vinke-ink">Dúvidas</a>
         </div>
@@ -920,6 +921,7 @@ export function Footer() {
           </span>
         </div>
         <div className="flex gap-6 text-xs font-semibold text-vinke-ink3">
+          <a href="/questoes" className="transition hover:text-white">Questões resolvidas</a>
           <a href="/termos" className="transition hover:text-white">Termos de uso</a>
           <a href="/privacidade" className="transition hover:text-white">Privacidade</a>
           <a href="/suporte" className="transition hover:text-white">Suporte</a>
