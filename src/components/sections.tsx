@@ -104,7 +104,7 @@ export function MockupInicio() {
             <div className="h-[5px] rounded-full bg-vinke-line2">
               <div className="h-[5px] w-[90%] rounded-full bg-vinke" />
             </div>
-            <span className="text-[8px] font-semibold text-vinke-ink2">Faltam 74 dias</span>
+            <span className="text-[8px] font-semibold text-vinke-ink2">no seu ritmo</span>
           </div>
         </div>
         <div className="flex flex-col gap-1.5 rounded-xl bg-white p-3">
