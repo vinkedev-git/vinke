@@ -917,7 +917,7 @@ export function Footer() {
             <span className="font-display text-[15px] font-bold text-white">VINKE</span>
           </div>
           <span className="text-[10px] font-medium text-[#5D5A72]">
-            Vinke Estudos · CNPJ em registro
+            Um produto de Lastro Ensino e Produção de Conteúdo · CNPJ 69.485.755/0001-20
           </span>
         </div>
         <div className="flex gap-6 text-xs font-semibold text-vinke-ink3">

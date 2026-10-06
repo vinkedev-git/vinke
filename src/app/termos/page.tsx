@@ -17,9 +17,9 @@ export default function TermosPage() {
           (&ldquo;plataforma&rdquo;). Ao criar uma conta, você concorda com eles.
         </P>
         <P>
-          A plataforma é operada por VINKE Educação, com registro de CNPJ em andamento. Assim
-          que o registro for concluído, a razão social e o CNPJ serão atualizados nesta página.
-          Para qualquer assunto, fale com a gente em suporte@vinke.app.br.
+          O VINKE é um produto de Lastro Ensino e Produção de Conteúdo, nome fantasia da
+          microempreendedora individual inscrita no CNPJ 69.485.755/0001-20. Para qualquer
+          assunto, fale com a gente em suporte@vinke.app.br.
         </P>
       </Secao>
 

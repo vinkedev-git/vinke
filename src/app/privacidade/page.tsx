@@ -18,9 +18,9 @@ export default function PrivacidadePage() {
 
       <Secao titulo="1. Quem é o responsável pelos dados">
         <P>
-          O controlador dos dados tratados na plataforma é VINKE Educação, com registro de CNPJ
-          em andamento (a identificação completa será atualizada nesta página após a conclusão do
-          registro). O canal do encarregado de proteção de dados (DPO) é{" "}
+          O controlador dos dados tratados na plataforma é Lastro Ensino e Produção de Conteúdo,
+          nome fantasia da microempreendedora individual inscrita no CNPJ 69.485.755/0001-20.
+          O canal do encarregado de proteção de dados (DPO) é{" "}
           <a href="mailto:suporte@vinke.app.br" className="font-bold text-vinke underline underline-offset-2">
             suporte@vinke.app.br
           </a>
