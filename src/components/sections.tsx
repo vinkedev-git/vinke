@@ -8,9 +8,9 @@ const ENTRAR = `${APP_URL}/aluno/entrar`;
 const COMECAR = `${APP_URL}/aluno/cadastro`;
 
 // Checkouts Eduzz dos planos pagos
-const CHECKOUT_MENSAL = "https://sun.eduzz.com/R9JXJO5E0X";
-const CHECKOUT_ANUAL = "https://sun.eduzz.com/KW8ZK4BO01";
-const CHECKOUT_PASSE = "https://sun.eduzz.com/797Z7QJV0E";
+const CHECKOUT_MENSAL = "https://sun.eduzz.com/1W322JN592";
+const CHECKOUT_ANUAL = "https://sun.eduzz.com/40QRRBZ19B";
+const CHECKOUT_PASSE = "https://sun.eduzz.com/G96RR56EW1";
 
 // ─── Nav ─────────────────────────────────────────────────────────────────────
 
