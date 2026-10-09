@@ -13,10 +13,10 @@ export const metadata: Metadata = {
 const PASSOS = [
   {
     n: "1",
-    titulo: "Crie sua senha",
+    titulo: "Abra o e-mail e crie sua senha",
     texto:
-      "Use o mesmo e-mail que você informou na compra. Na tela de acesso, toque em “Esqueci minha senha” e peça o link — ele chega em instantes e serve para definir a sua senha pela primeira vez.",
-    acao: { label: "Criar minha senha", href: `${APP_URL}/aluno/entrar` },
+      "Acabamos de enviar para o e-mail da compra uma mensagem com o botão “Criar minha senha”. É só clicar e escolher a sua senha — leva segundos. Não chegou? Use o botão abaixo para receber o link de novo.",
+    acao: { label: "Receber o link de novo", href: `${APP_URL}/aluno/criar-senha` },
   },
   {
     n: "2",
@@ -80,7 +80,11 @@ export default function ObrigadoPage() {
             Não recebeu o e-mail do link?
           </h2>
           <p className="mt-2 text-[15px] leading-relaxed text-vinke-ink2">
-            Confira a caixa de spam e a aba “Promoções”. Se ainda assim não encontrar, escreva para{" "}
+            Confira a caixa de spam e a aba “Promoções”. Você também pode{" "}
+            <a href={`${APP_URL}/aluno/criar-senha`} className="font-semibold text-vinke underline">
+              pedir um novo link
+            </a>
+            . Se ainda assim não conseguir, escreva para{" "}
             <a href="mailto:suporte@vinke.app.br" className="font-semibold text-vinke underline">
               suporte@vinke.app.br
             </a>{" "}
