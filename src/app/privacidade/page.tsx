@@ -63,14 +63,16 @@ export default function PrivacidadePage() {
             "Prestar o serviço: autenticar sua conta, salvar seu progresso e exibir seu histórico;",
             "Personalizar seu estudo: o plano diário e as prioridades de treino são calculados a partir do seu desempenho — esse é o coração do produto;",
             "Comunicar: avisos sobre a conta, a assinatura e mudanças relevantes no serviço;",
+            "Falar com você no WhatsApp (só se você pedir): se informar seu celular e marcar a opção de contato no cadastro, podemos enviar dicas de estudo e ofertas. O celular é opcional, essa autorização é separada da criação da conta e você pode cancelá-la a qualquer momento — basta responder pedindo para parar ou escrever para o suporte;",
             "Melhorar a plataforma: entender, de forma agregada, como os recursos são usados;",
             "Segurança e obrigações legais: prevenir fraude e abuso, e cumprir a lei.",
           ]}
         />
         <P>
           Bases legais (LGPD, art. 7º): execução do contrato com você, cumprimento de obrigação
-          legal, legítimo interesse (segurança e melhoria do serviço) e, quando aplicável, seu
-          consentimento.
+          legal, legítimo interesse (segurança e melhoria do serviço) e seu consentimento — é o
+          caso do contato comercial por WhatsApp, que só acontece se você autorizar e pode ser
+          revogado quando quiser, sem afetar o seu acesso à plataforma.
         </P>
       </Secao>
 
