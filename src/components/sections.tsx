@@ -786,7 +786,7 @@ export function Planos() {
             <span className="text-xs font-medium text-vinke-ink3">Para conhecer o treino.</span>
             <div className="flex flex-col gap-2 text-[13px] font-medium text-vinke-ink2">
               <span>✓ 10 questões por dia</span>
-              <span>✓ 1 simulado por mês</span>
+              <span>✓ 1 simulado por semana</span>
               <span>✓ Questão do dia e sequência</span>
               <span className="text-vinke-ink4">✗ Plano diário adaptativo</span>
               <span className="text-vinke-ink4">✗ Caderno de erros</span>
