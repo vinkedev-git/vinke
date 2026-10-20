@@ -24,17 +24,20 @@ function db() {
 // ─── Slugs ───────────────────────────────────────────────────────────────────
 
 export function slugFromId(id: string): string {
-  // ENEM2019_Q137 -> enem-2019-questao-137 · ENEM2019_Q001_ESPANHOL -> enem-2019-questao-1-espanhol
-  const m = id.match(/^ENEM(\d{4})_Q0*(\d+)(?:_([A-Z]+))?$/);
+  // ENEM2019_Q137          -> enem-2019-questao-137
+  // ENEM2019_Q001_ESPANHOL -> enem-2019-questao-1-espanhol
+  // ENEM2024R_Q137         -> enem-2024r-questao-137   (R = reaplicação/PPL)
+  const m = id.match(/^ENEM(\d{4})(R?)_Q0*(\d+)(?:_([A-Z]+))?$/);
   if (!m) return id.toLowerCase().replace(/_/g, "-");
-  return `enem-${m[1]}-questao-${m[2]}${m[3] ? `-${m[3].toLowerCase()}` : ""}`;
+  const ano = m[1] + m[2].toLowerCase();
+  return `enem-${ano}-questao-${m[3]}${m[4] ? `-${m[4].toLowerCase()}` : ""}`;
 }
 
 export function idFromSlug(slug: string): string | null {
-  const m = slug.match(/^enem-(\d{4})-questao-(\d+)(?:-([a-z]+))?$/);
+  const m = slug.match(/^enem-(\d{4})(r?)-questao-(\d+)(?:-([a-z]+))?$/);
   if (!m) return null;
-  const idx = String(Number(m[2])).padStart(3, "0");
-  return `ENEM${m[1]}_Q${idx}${m[3] ? `_${m[3].toUpperCase()}` : ""}`;
+  const idx = String(Number(m[3])).padStart(3, "0");
+  return `ENEM${m[1]}${m[2].toUpperCase()}_Q${idx}${m[4] ? `_${m[4].toUpperCase()}` : ""}`;
 }
 
 export const slugify = (s: string) =>
