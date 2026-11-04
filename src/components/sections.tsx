@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { AvisoAbertoHero, AvisoAbertoPlanos } from "@/components/AvisoAberto";
 import { VinkeSymbol } from "@/components/VinkeLogo";
 import DiasEnem from "@/components/DiasEnem";
 import { DADOS_PRODUTO } from "@/lib/produto";
@@ -152,7 +153,9 @@ export function Hero({ campanha = false }: { campanha?: boolean }) {
             </a>
           ) : null}
         </div>
-        <span className="text-xs font-medium text-vinke-ink3">Sem cartão de crédito no plano grátis.</span>
+        <AvisoAbertoHero
+          fallback={<span className="text-xs font-medium text-vinke-ink3">Sem cartão de crédito no plano grátis.</span>}
+        />
       </div>
       <MockupInicio />
     </header>
@@ -777,6 +780,7 @@ export function Planos() {
           <h2 className="font-display text-3xl font-bold text-vinke-ink sm:text-[38px]">
             Comece grátis. Evolua no seu ritmo.
           </h2>
+          <AvisoAbertoPlanos />
         </div>
         <div className="flex flex-col items-stretch justify-center gap-5 lg:flex-row">
           {/* Gratuito */}
