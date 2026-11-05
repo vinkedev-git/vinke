@@ -100,9 +100,13 @@ export default function PrivacidadePage() {
       <Secao titulo="5. Cookies e armazenamento local">
         <P>
           Usamos cookies e armazenamento local do navegador para manter sua sessão ativa e
-          guardar caches de desempenho que deixam a plataforma mais rápida. Não usamos cookies de
-          publicidade de terceiros. Você pode limpar esses dados no navegador; a consequência é
-          apenas precisar entrar de novo.
+          guardar caches de desempenho que deixam a plataforma mais rápida. Também guardamos, num
+          cookie próprio (vk_origem, válido por 90 dias), de onde você chegou ao site (campanha,
+          anúncio ou site de origem), para saber quais canais trazem estudantes; essa informação
+          fica associada à sua conta se você se cadastrar. O site usa ainda o Pixel da Meta, que
+          grava cookies da Meta para medir os resultados dos nossos anúncios no Facebook e no
+          Instagram. Você pode limpar esses dados no navegador; a consequência é apenas precisar
+          entrar de novo.
         </P>
       </Secao>
 
