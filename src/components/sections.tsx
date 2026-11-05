@@ -2,6 +2,7 @@ import Link from "next/link";
 import { AvisoAbertoHero, AvisoAbertoPlanos } from "@/components/AvisoAberto";
 import { VinkeSymbol } from "@/components/VinkeLogo";
 import DiasEnem from "@/components/DiasEnem";
+import PasseRetaFinal from "@/components/PasseRetaFinal";
 import { DADOS_PRODUTO } from "@/lib/produto";
 
 export const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? "https://aluno.vinke.app.br";
@@ -849,27 +850,8 @@ export function Planos() {
             </a>
           </div>
         </div>
-        {/* Oferta sazonal — remover após o ENEM 2026 */}
-        <div className="mx-auto flex w-full max-w-[940px] flex-col items-start justify-between gap-4 rounded-[18px] border-[1.5px] border-vinke bg-vinke-soft p-6 sm:flex-row sm:items-center">
-          <div className="flex flex-col gap-1">
-            <span className="text-[10px] font-bold tracking-[0.12em] text-vinke">
-              PARA QUEM FAZ A PROVA ESTE ANO
-            </span>
-            <span className="font-display text-lg font-bold text-vinke-ink">
-              Passe Reta Final · ENEM 2026
-            </span>
-            <span className="text-[13px] font-medium text-vinke-ink2">
-              Pagamento único de <strong className="text-vinke-ink">R$ 49,90</strong> · tudo
-              liberado até 30/11/2026. Faltam <DiasEnem /> dias de treino.
-            </span>
-          </div>
-          <a
-            href={CHECKOUT_PASSE}
-            className="shrink-0 rounded-[10px] bg-vinke px-6 py-3 text-[13px] font-bold text-white transition hover:bg-vinke-deep"
-          >
-            Garantir o Passe
-          </a>
-        </div>
+        {/* Oferta sazonal: some sozinha a partir de 15/11/2026 */}
+        <PasseRetaFinal checkoutUrl={CHECKOUT_PASSE} />
         <div className="flex flex-col items-center justify-center gap-3 text-xs font-semibold text-vinke-ink2 sm:flex-row sm:gap-6">
           <span className="flex items-center gap-2">
             <span className="flex h-5 w-5 items-center justify-center rounded-full bg-vinke-soft text-[11px] font-bold text-vinke">7</span>
