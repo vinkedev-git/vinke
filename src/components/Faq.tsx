@@ -4,6 +4,15 @@ import { useState } from "react";
 
 const PERGUNTAS: Array<{ q: string; a: string }> = [
   {
+    q: "A prova do ENEM 2026 já está no Vinke?",
+    a: "Sim. As questões dos dois dias já estão no Vinke, cada uma com resolução comentada, desde a divulgação do gabarito oficial (18/11). Dá para fazer a prova completa ou montar um simulado só com questões de 2026. A questão 153 do caderno amarelo foi anulada pelo INEP.",
+  },
+  {
+    // Vale até 31/01/2027: depois disso, trocar por "O que o plano grátis inclui?"
+    q: "O que é o Vinke aberto?",
+    a: "De 16 de novembro de 2026 a 31 de janeiro de 2027, o plano gratuito tem tudo liberado: questões sem limite, simulados completos, plano diário e caderno de erros, sem cartão. Em fevereiro, o grátis volta a ter 10 questões por dia.",
+  },
+  {
     q: "Funciona no celular?",
     a: "Sim — o VINKE foi feito para o celular. Questões, simulados, flashcards e seus dados funcionam no navegador, sem instalar nada.",
   },
@@ -17,7 +26,7 @@ const PERGUNTAS: Array<{ q: string; a: string }> = [
   },
   {
     q: "Posso cancelar quando quiser?",
-    a: "Pode, direto no app, sem burocracia. Você mantém o acesso até o fim do período já pago.",
+    a: "Pode, sem multa. O cancelamento é feito na sua conta da Eduzz (a plataforma de pagamento) ou pedindo em suporte@vinke.app.br, e você mantém o acesso até o fim do período já pago.",
   },
   {
     q: "Serve para outros vestibulares?",

@@ -9,18 +9,18 @@ const manrope = Manrope({ variable: "--font-manrope", subsets: ["latin"] });
 const spaceGrotesk = Space_Grotesk({ variable: "--font-space-grotesk", subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Vinke — Sua nota no ENEM começa a subir hoje",
+  title: "Vinke — Preparação para o ENEM 2027 com questões oficiais resolvidas",
   description:
-    "Questões oficiais do ENEM, simulados no formato da prova e um plano diário que prioriza o que você mais erra. Treino de verdade, não videoaula.",
+    "Mais de 4.000 questões oficiais do ENEM (2009 a 2026), incluindo a prova de 2026, todas com resolução comentada. Simulados no formato da prova e um plano diário que prioriza o que você mais erra.",
   icons: {
     icon: [{ url: "/logo-icon.png", type: "image/png" }],
     shortcut: "/logo-icon.png",
     apple: "/logo-icon.png",
   },
   openGraph: {
-    title: "Vinke — preparação para o ENEM",
+    title: "Vinke — a turma do ENEM 2027 começa agora",
     description:
-      "Questões oficiais, simulados e um plano diário que prioriza o que você mais erra.",
+      "ENEM 2026 resolvido e comentado, mais de 4.000 questões oficiais, simulados e um plano diário que prioriza o que você mais erra.",
     locale: "pt_BR",
     type: "website",
   },

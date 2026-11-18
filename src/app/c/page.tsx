@@ -2,6 +2,7 @@
 import {
   Hero,
   Numeros,
+  Enem2026,
   Problema,
   Planos,
   CtaFinal,
@@ -14,6 +15,7 @@ export default function CampanhaPage() {
     <div className="pb-16 lg:pb-0">
       <Hero campanha />
       <Numeros />
+      <Enem2026 />
       <Problema />
       <Planos />
       <CtaFinal />

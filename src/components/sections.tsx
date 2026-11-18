@@ -2,8 +2,7 @@ import Link from "next/link";
 import { AvisoAbertoHero, AvisoAbertoPlanos } from "@/components/AvisoAberto";
 import { VinkeSymbol } from "@/components/VinkeLogo";
 import DiasEnem from "@/components/DiasEnem";
-import PasseRetaFinal from "@/components/PasseRetaFinal";
-import { DADOS_PRODUTO } from "@/lib/produto";
+import { DADOS_PRODUTO, RESUMO_BANCO } from "@/lib/produto";
 
 export const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? "https://aluno.vinke.app.br";
 const ENTRAR = `${APP_URL}/aluno/entrar`;
@@ -12,7 +11,6 @@ const COMECAR = `${APP_URL}/aluno/cadastro`;
 // Checkouts Eduzz dos planos pagos
 const CHECKOUT_MENSAL = "https://sun.eduzz.com/1W322JN592";
 const CHECKOUT_ANUAL = "https://sun.eduzz.com/40QRRBZ19B";
-const CHECKOUT_PASSE = "https://sun.eduzz.com/G96RR56EW1";
 
 // ─── Nav ─────────────────────────────────────────────────────────────────────
 
@@ -130,13 +128,22 @@ export function Hero({ campanha = false }: { campanha?: boolean }) {
   return (
     <header className="mx-auto flex max-w-[1240px] flex-col items-center gap-10 px-5 pb-10 pt-14 lg:flex-row lg:gap-14 lg:px-8 lg:pt-[72px]">
       <div className="flex max-w-[560px] flex-1 flex-col gap-5">
-        <span className="text-xs font-bold tracking-[0.14em] text-vinke">PREPARAÇÃO PARA O ENEM</span>
+        <a
+          href="/questoes/prova/2026"
+          className="group flex w-fit items-center gap-2 rounded-full border border-vinke-line bg-white py-1 pl-1 pr-3 text-[12px] font-semibold text-vinke-ink2 transition hover:border-vinke"
+        >
+          <span className="rounded-full bg-vinke px-2 py-0.5 text-[10px] font-bold tracking-[0.08em] text-white">NOVO</span>
+          ENEM 2026 resolvido e comentado
+          <span className="text-vinke transition group-hover:translate-x-0.5">→</span>
+        </a>
+        <span className="text-xs font-bold tracking-[0.14em] text-vinke">TURMA ENEM 2027</span>
         <h1 className="font-display text-[40px] font-bold leading-[1.08] tracking-[-0.01em] text-vinke-ink sm:text-[54px]">
-          Sua nota no ENEM começa a subir hoje.
+          Sua nota no ENEM 2027 começa a subir hoje.
         </h1>
         <p className="text-[16px] leading-relaxed text-vinke-ink2 sm:text-[17px]">
-          Questões oficiais, simulados no formato da prova e um plano diário que usa seu
-          desempenho para priorizar o que estudar agora.
+          {RESUMO_BANCO.questoes} questões oficiais de {RESUMO_BANCO.anos}, todas com resolução
+          comentada, simulados no formato da prova e um plano diário que usa os seus erros para
+          decidir o que estudar primeiro.
         </p>
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
           <Link
@@ -166,7 +173,7 @@ export function Hero({ campanha = false }: { campanha?: boolean }) {
 export function TrustStrip() {
   return (
     <div className="mx-auto flex max-w-[1240px] flex-wrap gap-x-10 gap-y-2 px-5 pb-14 text-[13px] font-semibold text-vinke-ink2 lg:px-8">
-      {["Todas as provas oficiais do ENEM", "Correção na hora", "Estude no celular"].map((t) => (
+      {[`Provas oficiais de ${RESUMO_BANCO.anos}`, "Resolução comentada em todas", "Feito para o celular", `${RESUMO_BANCO.estudantes} estudantes já treinam`].map((t) => (
         <span key={t} className="flex items-center gap-2">
           <span className="h-1.5 w-1.5 rounded-full bg-vinke" />
           {t}
@@ -189,6 +196,81 @@ export function Numeros() {
             <span className="text-xs font-semibold text-vinke-ink3">{i.d}</span>
           </div>
         ))}
+      </div>
+    </section>
+  );
+}
+
+// ─── ENEM 2026 resolvido ─────────────────────────────────────────────────────
+
+const ALT_LEITE = ["R$ 14,85", "R$ 22,50", "R$ 44,55", "R$ 148,50", "R$ 445,50"];
+
+export function Enem2026() {
+  return (
+    <section id="enem-2026" className="bg-vinke-offwhite py-16 lg:py-[88px]">
+      <div className="mx-auto grid max-w-[1240px] items-center gap-10 px-5 lg:grid-cols-[1.05fr_1fr] lg:gap-14 lg:px-8">
+        <div className="flex flex-col gap-4">
+          <span className="text-xs font-bold tracking-[0.14em] text-vinke">ENEM 2026 RESOLVIDO</span>
+          <h2 className="font-display text-3xl font-bold leading-tight text-vinke-ink sm:text-[38px]">
+            A prova de 2026 inteira, questão por questão.
+          </h2>
+          <p className="max-w-[540px] text-[15px] leading-relaxed text-vinke-ink2 sm:text-[17px]">
+            O gabarito oficial saiu em 18 de novembro, e as questões dos dois dias já estão no Vinke,
+            cada uma com resolução comentada.
+          </p>
+          <div className="flex flex-col gap-3 text-[15px] leading-relaxed text-vinke-ink2">
+            <p>
+              <strong className="text-vinke-ink">Fez a prova?</strong> Refaça no Vinke e veja onde
+              errou e por quê. É a correção que o gabarito sozinho não dá.
+            </p>
+            <p>
+              <strong className="text-vinke-ink">Vai fazer em 2027?</strong> A prova mais recente é o
+              retrato mais fiel do que vem por aí. Comece por ela.
+            </p>
+          </div>
+          <div className="mt-1 flex flex-col gap-3 sm:flex-row">
+            <a
+              href="/questoes/prova/2026"
+              className="rounded-xl bg-vinke px-6 py-3.5 text-center text-[15px] font-bold text-white transition hover:bg-vinke-deep"
+            >
+              Ver a prova resolvida
+            </a>
+            <Link
+              href={COMECAR}
+              className="rounded-xl border-[1.5px] border-vinke-line bg-white px-6 py-3.5 text-center text-[15px] font-bold text-vinke-ink transition hover:bg-vinke-line2"
+            >
+              Refazer no Vinke, grátis
+            </Link>
+          </div>
+          <span className="text-xs font-medium text-vinke-ink3">
+            A questão 153 do caderno amarelo, do campeonato de futebol, foi anulada pelo INEP.
+          </span>
+        </div>
+
+        <a
+          href="/questoes/enem-2026-questao-147"
+          className="group flex w-full max-w-[520px] flex-col gap-3 justify-self-center rounded-2xl border border-vinke-line bg-white p-6 shadow-[0_24px_60px_rgba(11,10,33,0.10)] transition hover:border-vinke"
+        >
+          <span className="text-[11px] font-bold tracking-[0.12em] text-vinke">CAIU NO ENEM 2026 · MATEMÁTICA</span>
+          <p className="text-[15px] leading-relaxed text-vinke-ink">
+            Um adolescente, tendo em vista uma alimentação saudável, consome diariamente 7,5 dL de
+            leite durante 1 mês (30 dias). Sabe-se que o preço de um litro de leite é R$ 1,98. Nessas
+            condições, o custo mensal com o consumo de leite desse adolescente é de
+          </p>
+          <div className="flex flex-col gap-1.5">
+            {ALT_LEITE.map((a, i) => (
+              <div key={a} className="flex items-center gap-2.5 rounded-[9px] border-[1.5px] border-vinke-line px-3 py-2">
+                <span className="flex h-5 w-5 items-center justify-center rounded-full border-[1.5px] border-vinke-line text-[10px] font-bold text-vinke-ink2">
+                  {"ABCDE"[i]}
+                </span>
+                <span className="text-[13px] text-vinke-ink">{a}</span>
+              </div>
+            ))}
+          </div>
+          <span className="text-[13px] font-bold text-vinke">
+            Ver a resposta e a resolução <span className="inline-block transition group-hover:translate-x-0.5">→</span>
+          </span>
+        </a>
       </div>
     </section>
   );
@@ -313,7 +395,7 @@ export function Problema() {
               Você estuda. Mas não sabe se está estudando certo.
             </h2>
             <p className="max-w-[540px] text-[15px] leading-relaxed text-vinke-ink2 sm:text-[17px]">
-              A prova se aproxima. O conteúdo parece infinito. E quanto mais você tenta dar
+              Um ano até a prova parece muito. Mas o conteúdo é enorme, e quanto mais você tenta dar
               conta de tudo, mais difícil fica saber onde concentrar seu tempo.
             </p>
           </div>
@@ -389,33 +471,37 @@ export function Problema() {
 // ─── Recursos (4 blocos com mockups) ─────────────────────────────────────────
 
 function MockQuestao() {
+  // Questão real do banco (ENEM 2026, caderno amarelo, Q105) com trecho da
+  // resolução publicada em /questoes/enem-2026-questao-105.
   return (
     <div className="flex w-full max-w-[480px] flex-col gap-2.5 rounded-2xl border border-vinke-line bg-white p-5 shadow-[0_18px_48px_rgba(11,10,33,0.08)]">
       <div className="flex flex-wrap gap-1.5">
-        <span className="rounded-full bg-vinke-soft px-2 py-0.5 text-[10px] font-bold text-vinke">Matemática</span>
-        <span className="rounded-full bg-vinke-line2 px-2 py-0.5 text-[10px] font-bold text-vinke-ink2">ENEM 2023</span>
-        <span className="rounded-full bg-vinke-line2 px-2 py-0.5 text-[10px] font-bold text-vinke-ink2">Função afim</span>
+        <span className="rounded-full bg-vinke-soft px-2 py-0.5 text-[10px] font-bold text-vinke">Biologia</span>
+        <span className="rounded-full bg-vinke-line2 px-2 py-0.5 text-[10px] font-bold text-vinke-ink2">ENEM 2026</span>
+        <span className="rounded-full bg-vinke-line2 px-2 py-0.5 text-[10px] font-bold text-vinke-ink2">Evolução</span>
       </div>
       <p className="text-[13px] leading-relaxed text-vinke-ink">
-        Uma função afim f(x) = ax + b passa pelos pontos (1, 5) e (3, 11). O valor de a + b é…
+        “Como um júri, a seleção natural atua nas possibilidades trazidas à sua presença.” O trecho
+        “possibilidades trazidas à sua presença” refere-se
       </p>
       <div className="flex flex-col gap-1.5">
         <div className="flex items-center gap-2 rounded-[9px] border-[1.5px] border-vinke-line px-3 py-2">
           <span className="flex h-5 w-5 items-center justify-center rounded-full border-[1.5px] border-vinke-line text-[10px] font-bold text-vinke-ink2">A</span>
-          <span className="text-xs text-vinke-ink">4</span>
+          <span className="text-xs text-vinke-ink">ao fluxo gênico.</span>
         </div>
         <div className="flex items-center gap-2 rounded-[9px] border-[1.5px] border-vinke-green bg-vinke-green-soft px-3 py-2">
           <span className="flex h-5 w-5 items-center justify-center rounded-full bg-vinke-green text-[10px] font-bold text-white">✓</span>
-          <span className="text-xs font-bold text-vinke-green-text">5 — você acertou</span>
+          <span className="text-xs font-bold text-vinke-green-text">à variação dos indivíduos — você acertou</span>
         </div>
         <div className="flex items-center gap-2 rounded-[9px] border-[1.5px] border-vinke-line px-3 py-2">
           <span className="flex h-5 w-5 items-center justify-center rounded-full border-[1.5px] border-vinke-line text-[10px] font-bold text-vinke-ink2">C</span>
-          <span className="text-xs text-vinke-ink">6</span>
+          <span className="text-xs text-vinke-ink">aos caracteres adquiridos.</span>
         </div>
       </div>
       <div className="rounded-[10px] bg-vinke-offwhite px-3 py-2.5 text-[11px] leading-relaxed text-vinke-ink2">
         <strong className="text-vinke-ink">Resolução: </strong>
-        com dois pontos da reta, a = (11−5)/(3−1) = 3 e b = 2. Logo a + b = 5.
+        a seleção natural não cria características, ela julga as que já existem. O que chega ao
+        “júri” é a variação entre os indivíduos; sem ela, não há o que selecionar.
       </div>
     </div>
   );
@@ -651,7 +737,7 @@ export function ComoFunciona() {
     {
       n: "1",
       t: "Crie a conta e responda o diagnóstico",
-      d: "10 questões para o VINKE conhecer seu nível em cada área. Leva 10 minutos.",
+      d: "10 questões das quatro áreas para o VINKE conhecer seu nível. Leva uns 15 minutos.",
       check: false,
     },
     {
@@ -779,7 +865,7 @@ export function Planos() {
         <div className="flex flex-col items-center gap-2 text-center">
           <span className="text-xs font-bold tracking-[0.14em] text-vinke">PLANOS</span>
           <h2 className="font-display text-3xl font-bold text-vinke-ink sm:text-[38px]">
-            Comece grátis. Evolua no seu ritmo.
+            Comece grátis. Chegue pronto ao ENEM 2027.
           </h2>
           <AvisoAbertoPlanos />
         </div>
@@ -827,7 +913,7 @@ export function Planos() {
           {/* Anual */}
           <div className="relative flex w-full flex-col gap-3.5 rounded-[18px] bg-vinke-navy p-7 shadow-[0_24px_60px_rgba(11,10,33,0.25)] lg:w-[300px]">
             <span className="absolute -top-3 left-7 rounded-full bg-vinke px-3 py-1 text-[10px] font-bold tracking-[0.08em] text-white">
-              MAIS ESCOLHIDO
+              TURMA 2027
             </span>
             <span className="font-display text-base font-bold text-white">Anual</span>
             <div className="flex items-baseline gap-1">
@@ -835,12 +921,12 @@ export function Planos() {
               <span className="text-[13px] font-semibold text-vinke-ink3">/mês</span>
             </div>
             <span className="text-xs font-medium text-vinke-ink3">
-              Cobrado R$ 238,80/ano (12x no cartão) · economia de 43% vs. mensal.
+              12x sem juros no cartão, ou R$ 238,80 à vista.
             </span>
             <div className="flex flex-col gap-2 text-[13px] font-medium text-[#C9C5E2]">
               <span>✓ Tudo do Mensal</span>
-              <span>✓ Preço travado até o ENEM</span>
-              <span>✓ Prioridade em novos recursos</span>
+              <span>✓ 12 meses: cobre o ENEM 2027 inteiro</span>
+              <span>✓ 43% mais barato que o mensal</span>
             </div>
             <a
               href={CHECKOUT_ANUAL}
@@ -850,8 +936,6 @@ export function Planos() {
             </a>
           </div>
         </div>
-        {/* Oferta sazonal: some sozinha a partir de 15/11/2026 */}
-        <PasseRetaFinal checkoutUrl={CHECKOUT_PASSE} />
         <div className="flex flex-col items-center justify-center gap-3 text-xs font-semibold text-vinke-ink2 sm:flex-row sm:gap-6">
           <span className="flex items-center gap-2">
             <span className="flex h-5 w-5 items-center justify-center rounded-full bg-vinke-soft text-[11px] font-bold text-vinke">7</span>
@@ -859,7 +943,7 @@ export function Planos() {
           </span>
           <span className="flex items-center gap-2">
             <span className="text-vinke">✓</span>
-            Cancele quando quiser, direto no app
+            Cancele quando quiser, sem multa
           </span>
         </div>
       </div>
@@ -875,10 +959,11 @@ export function CtaFinal() {
       <div className="mx-auto flex max-w-[680px] flex-col items-center gap-5 text-center">
         <VinkeSymbol size={44} />
         <h2 className="font-display text-[32px] font-bold leading-tight text-white sm:text-[46px]">
-          Faltam <span className="text-vinke-lav"><DiasEnem /> dias</span> para o ENEM. Comece hoje.
+          A turma 2027 começa hoje.
         </h2>
         <p className="text-[15px] font-medium text-vinke-ink3">
-          Cada dia de treino conta. O diagnóstico leva 10 minutos.
+          Faltam cerca de <span className="font-bold text-vinke-lav"><DiasEnem /> dias</span> para o ENEM 2027.
+          Comece pelo diagnóstico: 10 questões, uns 15 minutos.
         </p>
         <Link
           href={COMECAR}

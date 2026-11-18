@@ -3,6 +3,7 @@ import {
   Hero,
   TrustStrip,
   Numeros,
+  Enem2026,
   Problema,
   Recursos,
   Ciclo,
@@ -27,6 +28,7 @@ export default function LandingPage() {
       <Hero />
       <TrustStrip />
       <Numeros />
+      <Enem2026 />
       <Problema />
       <Recursos />
       <Ciclo />
