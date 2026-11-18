@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 // (vinke-aluno/src/lib/oferta-client.ts) e do e-mail de janeiro (admin).
 // CHECKOUT vazio = faixa escondida. A data é checada no navegador para a
 // página estática não congelar no dia do build.
-export const CHECKOUT_FUNDADOR = "";
+export const CHECKOUT_FUNDADOR = "https://chk.eduzz.com/8017XZ2N07";
 const FIM = new Date("2027-02-01T00:00:00-03:00");
 const diaBRT = (d: Date) => Math.floor((d.getTime() - 3 * 3_600_000) / 86_400_000);
 
