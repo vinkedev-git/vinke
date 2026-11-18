@@ -91,7 +91,8 @@ export const listQuestoesMeta = unstable_cache(
       }))
       .sort((a, b) => a.examYear - b.examYear || a.enemIndex - b.enemIndex);
   },
-  ["questoes-meta"],
+  // chave versionada: trocar força o próximo deploy a reler o banco (ENEM 2026 em 18/11/2026)
+  ["questoes-meta-v2"],
   { revalidate: 86400 }
 );
 

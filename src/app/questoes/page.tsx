@@ -7,7 +7,7 @@ export const revalidate = 86400;
 export const metadata: Metadata = {
   title: "Questões do ENEM resolvidas e comentadas | Vinke",
   description:
-    "Mais de 2.600 questões oficiais do ENEM (2009–2023) com resolução comentada passo a passo, organizadas por prova, disciplina e assunto. Estude grátis.",
+    "Mais de 4.000 questões oficiais do ENEM (2009–2026), incluindo a prova de 2026, com resolução comentada passo a passo, organizadas por prova, disciplina e assunto. Estude grátis.",
   alternates: { canonical: "https://vinke.app.br/questoes" },
 };
 
@@ -24,6 +24,8 @@ export default async function Page() {
   }
 
   const anos = [...porAno.entries()].sort((a, b) => b[0] - a[0]);
+  const anoMin = anos.length ? anos[anos.length - 1][0] : 2009;
+  const anoMax = anos.length ? anos[0][0] : 2009;
   const disciplinas = [...porDisciplina.entries()].sort((a, b) => b[1] - a[1]);
   const assuntos = [...porAssunto.entries()].sort((a, b) => b[1] - a[1]).slice(0, 30);
 
@@ -33,7 +35,7 @@ export default async function Page() {
         Questões do ENEM resolvidas e comentadas
       </h1>
       <p className="mt-3 max-w-[640px] text-[15px] font-medium leading-relaxed text-vinke-ink2">
-        {metas.length.toLocaleString("pt-BR")} questões oficiais das provas de 2009 a 2023, todas
+        {metas.length.toLocaleString("pt-BR")} questões oficiais das provas de {anoMin} a {anoMax}, todas
         com resolução comentada passo a passo. Escolha por prova, disciplina ou assunto.
       </p>
 
