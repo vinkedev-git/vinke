@@ -46,3 +46,20 @@ export default function OfertaFundador() {
     </div>
   );
 }
+
+/**
+ * Botão do card do Anual: enquanto a condição de fundador vale, leva ao
+ * checkout de fundador (ninguém paga o preço cheio sem querer); depois de
+ * 31/01 (ou sem o link), volta ao checkout normal do Anual.
+ */
+export function BotaoAnual({ checkoutAnual, className }: { checkoutAnual: string; className: string }) {
+  const [fundador, setFundador] = useState(false);
+  useEffect(() => {
+    setFundador(Boolean(CHECKOUT_FUNDADOR) && new Date() < FIM);
+  }, []);
+  return (
+    <a href={fundador ? CHECKOUT_FUNDADOR : checkoutAnual} className={className}>
+      {fundador ? "Assinar com preço de fundador" : "Assinar Anual"}
+    </a>
+  );
+}

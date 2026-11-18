@@ -2,7 +2,7 @@ import Link from "next/link";
 import { AvisoAbertoHero, AvisoAbertoPlanos } from "@/components/AvisoAberto";
 import { VinkeSymbol } from "@/components/VinkeLogo";
 import DiasEnem from "@/components/DiasEnem";
-import OfertaFundador from "@/components/OfertaFundador";
+import OfertaFundador, { BotaoAnual } from "@/components/OfertaFundador";
 import { DADOS_PRODUTO, RESUMO_BANCO } from "@/lib/produto";
 
 export const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? "https://aluno.vinke.app.br";
@@ -929,12 +929,10 @@ export function Planos() {
               <span>✓ 12 meses: cobre o ENEM 2027 inteiro</span>
               <span>✓ 43% mais barato que o mensal</span>
             </div>
-            <a
-              href={CHECKOUT_ANUAL}
+            <BotaoAnual
+              checkoutAnual={CHECKOUT_ANUAL}
               className="mt-auto rounded-[10px] bg-vinke py-3 text-center text-[13px] font-bold text-white transition hover:bg-vinke-deep"
-            >
-              Assinar Anual
-            </a>
+            />
           </div>
         </div>
         {/* Condição de fundador (até 31/01/2027; escondida sem o checkout) */}
