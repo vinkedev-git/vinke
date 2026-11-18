@@ -2,6 +2,7 @@ import Link from "next/link";
 import { AvisoAbertoHero, AvisoAbertoPlanos } from "@/components/AvisoAberto";
 import { VinkeSymbol } from "@/components/VinkeLogo";
 import DiasEnem from "@/components/DiasEnem";
+import OfertaFundador from "@/components/OfertaFundador";
 import { DADOS_PRODUTO, RESUMO_BANCO } from "@/lib/produto";
 
 export const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? "https://aluno.vinke.app.br";
@@ -936,6 +937,8 @@ export function Planos() {
             </a>
           </div>
         </div>
+        {/* Condição de fundador (até 31/01/2027; escondida sem o checkout) */}
+        <OfertaFundador />
         <div className="flex flex-col items-center justify-center gap-3 text-xs font-semibold text-vinke-ink2 sm:flex-row sm:gap-6">
           <span className="flex items-center gap-2">
             <span className="flex h-5 w-5 items-center justify-center rounded-full bg-vinke-soft text-[11px] font-bold text-vinke">7</span>
